@@ -398,7 +398,7 @@
   width: 350px;
   padding: 10px;
   height: auto;
-  margin-left: 5%;
+  margin-left: 4%;
   position: absolute;
   top: 5rem;
   border-radius: 14px;
@@ -464,7 +464,7 @@ hr {
 .battle_card {
   width: 370px;
   height: 60%;
-  margin-left: 5%;
+  margin-left: 4%;
   position: absolute;
   top: 25%;
   border-radius: 14px;
