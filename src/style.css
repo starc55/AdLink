@@ -433,7 +433,7 @@ hr {
   margin-top: 35px;
   color: white;
   font-weight: 700;
-  font-size: 17px;
+  font-size: 18px;
 }
 
 .timeleft_text {
@@ -484,7 +484,8 @@ hr {
 }
 
 .batlle_gamers {
-  margin-left: 67%;
+  position: relative;
+  left: 65%;
 }
 
 .battle_card_bottom-data {
@@ -493,7 +494,7 @@ hr {
   margin-top: -5%;
   margin-left: 5%;
   margin-right: 5%;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   color: #ffffff;
 }

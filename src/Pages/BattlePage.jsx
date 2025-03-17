@@ -7,19 +7,20 @@ import avatar from "../img/inner.svg";
 import skull from "../img/boom.svg";
 import battle from "../img/battle.svg";
 import "../style.css";
+import { useNavigate } from "react-router-dom";
 
 const opponentsList = [
   { name: "Player1", avatar: avatar },
   { name: "Player2", avatar: avatar },
   { name: "Player3", avatar: avatar },
 ];
-
 const BattlePage = ({ setActivePage, hearts, stars, userName }) => {
   const TotalHearts = 9;
   const [timeLeft, setTimeLeft] = useState("");
   const [opponent, setOpponent] = useState(null);
   const [isSearching, setIsSearching] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const updateTimer = () => {
@@ -56,6 +57,12 @@ const BattlePage = ({ setActivePage, hearts, stars, userName }) => {
       setIsSearching(false);
       setShowModal(true);
     }, 2000); // 2 soniyadan keyin opponent topiladi
+  };
+
+  const handleStartFight = () => {
+    navigate("/fight", {
+      state: { user: { name: userName, avatar, hearts }, opponent },
+    });
   };
 
   return (
@@ -122,7 +129,12 @@ const BattlePage = ({ setActivePage, hearts, stars, userName }) => {
               <span className="battle_vs">VS</span>
               <img src={opponent.avatar} alt="" className="fade-in" />
             </div>
-            <button className="battle_data-btn green-btn">Начать бой</button>
+            <button
+              className="battle_data-btn green-btn"
+              onClick={handleStartFight}
+            >
+              Начать бой
+            </button>
           </>
         ) : (
           <button className="battle_data-btn" onClick={handleFindOpponent}>

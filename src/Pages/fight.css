@@ -1,0 +1,176 @@
+.fight_container {
+    background: url(../img/bg\ game.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.fight_header {
+    padding: 10px;
+    width: 360px;
+    height: 117px;
+    border-radius: 14px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: #10295C80;
+    position: absolute;
+    top: 5rem;
+    margin-left: 4.5%;
+}
+
+.player_name {
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+}
+
+.playe_rate {
+    position: relative;
+    top: -7px;
+    margin-left: 10%;
+    font-size: 17px;
+    font-weight: 700;
+    color: white;
+}
+
+.player_title {
+    margin-left: 5px;
+    margin-top: 3%;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.player_info {
+    display: flex;
+    align-items: center;
+}
+
+.fight_img {
+    width: 380px;
+    position: absolute;
+    bottom: 27%;
+    margin-left: 3%;
+}
+
+.fight_control {
+    display: flex;
+    position: absolute;
+    bottom: 10%;
+    gap: 1rem;
+}
+
+.fight_foot {
+    position: absolute;
+    display: flex;
+    bottom: 3%;
+    margin-left: 5%;
+    gap: 1rem;
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: auto;
+    width: 170px;
+    padding: 10px;
+    border-radius: 14px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    background-color: #ffffff1d;
+    margin-left: 5%;
+}
+
+.fight_btn {
+    border-radius: 50px;
+    height: 34px;
+    border: none;
+    background-color: #10295C;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+}
+
+label {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+}
+
+.attack {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: auto;
+    width: 170px;
+    padding: 10px;
+    border-radius: 14px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    background-color: #ffffff1d;
+}
+
+
+.back_to_main {
+    width: 180px;
+    border: 2px solid #B4FF00;
+    border-radius: 50px;
+    height: 44px;
+    background-color: #10295C;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+}
+
+.take_ambulance {
+    display: flex;
+    align-items: center;
+    width: 180px;
+    border-radius: 50px;
+    height: 44px;
+    text-align: center;
+    border: none;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: #B4FF00;
+    color: #10295C;
+}
+
+.take_ambulance-text {
+    margin-left: 20%;
+    margin-right: 3px;
+}
+
+.timer-box {
+    display: flex;
+    position: absolute;
+    bottom: 30%;
+    left: 35%;
+    width: 125px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #10295C80;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 10px #A9E526;
+    align-items: center;
+}
+
+.clock-icon {
+    margin-left: 15%;
+    margin-right: 3px;
+}
+
+.timer-text {
+    font-size: 22px;
+    font-weight: 600;
+    color: white;
+    position: relative;
+    top: -3px;
+}
+
+
