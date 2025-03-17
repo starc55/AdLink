@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "../style.css";
 import maleSvg from "../img/male.svg";
-import femaleSvg from "../img/female.svg"; 
+import femaleSvg from "../img/female.svg";
 import backgroundImg from "../img/bg.png";
 import coupleSvg from "../img/couple.svg";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 const onboardingData = [
   {
@@ -23,13 +23,16 @@ const onboardingData = [
 ];
 
 const Onboarding = () => {
+  const navigate = useNavigate();
+
+  // Genderni localStorage dan olish va boshlang‘ich holatni o‘rnatish
+  const savedGender = localStorage.getItem("userGender") || "male";
+
   const [onboardingState, setOnboardingState] = useState({
     pageIndex: 0,
-    gender: "male",
-    bgPosition: "100% 50%",
+    gender: savedGender,
+    bgPosition: savedGender === "male" ? "100% 50%" : "0% 50%",
   });
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     document.documentElement.requestFullscreen?.();
@@ -48,12 +51,13 @@ const Onboarding = () => {
       gender: selectedGender,
       bgPosition: selectedGender === "male" ? "100% 50%" : "0% 50%",
     }));
+    localStorage.setItem("userGender", selectedGender);
   };
 
-  const handleSkip = () => setOnboardingState((prev) => ({ ...prev, pageIndex: 2 }));
+  const handleSkip = () =>
+    setOnboardingState((prev) => ({ ...prev, pageIndex: 2 }));
 
   const handleStartGame = () => {
-    localStorage.setItem("userGender", onboardingState.gender);
     navigate("/main");
   };
 
@@ -70,7 +74,7 @@ const Onboarding = () => {
       <button className="onboarding-skip" onClick={handleSkip}>
         <span>ПРОПУСТИТЬ</span>
       </button>
-      
+
       {onboardingState.pageIndex < 2 && (
         <img src={coupleSvg} alt="couple" className="onboarding-couple" />
       )}
@@ -130,7 +134,10 @@ const Onboarding = () => {
                   ЖЕНЩИНА
                 </button>
               </div>
-              <button className="onboarding-start_btn" onClick={handleStartGame}>
+              <button
+                className="onboarding-start_btn"
+                onClick={handleStartGame}
+              >
                 НАЧАТЬ ИГРУ
               </button>
             </>

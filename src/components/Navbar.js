@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from "react";
+import React, { useState, useMemo, useCallback, useEffect } from "react";
 import "../Css/Navbar.css";
 import ambulance from "../img/ambulance.svg";
 import coin from "../img/coin.svg";
@@ -14,10 +14,13 @@ const navItems = [
   { id: "medkit", label: "АПТЕЧКА", icon: ambulance },
 ];
 
-const BottomNavbar = ({ setActivePage }) => {
+const BottomNavbar = ({ activePage, setActivePage }) => {
   const [activeTab, setActiveTab] = useState("hub");
 
-  // Faqat kerak bo'lganda qayta render bo'lishi uchun useCallback ishlatamiz
+  useEffect(() => {
+    setActiveTab(activePage);
+  }, [activePage]);
+
   const handleNavClick = useCallback(
     (id) => {
       setActiveTab(id);
@@ -26,7 +29,6 @@ const BottomNavbar = ({ setActivePage }) => {
     [setActivePage]
   );
 
-  // transform qiymatini oldindan hisoblash
   const translateX = useMemo(() => {
     return `${navItems.findIndex((item) => item.id === activeTab) * 120}%`;
   }, [activeTab]);

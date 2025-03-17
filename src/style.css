@@ -257,7 +257,7 @@
   display: flex;
   position: relative;
   top: 5px;
-  left: 20px;
+  left: 25px;
 }
 
 .heart_container img {
@@ -270,8 +270,8 @@
   position: relative;
   top: 3px;
   margin-left: 5px;
-  width: 15px;
-  height: 28px;
+  width: 13px;
+  height: 23px;
   border-radius: 50px;
   background-color: #B4FF00;
 }
@@ -280,8 +280,8 @@
   position: relative;
   top: 3px;
   margin-left: 5px;
-  width: 15px;
-  height: 28px;
+  width: 13px;
+  height: 23px;
   border: 1px solid #B4FF00;
   border-radius: 50px;
   background-color: transparent;
@@ -390,4 +390,236 @@
   margin-top: -0.5rem;
   font-size: 12px;
   font-weight: 400;
+}
+
+/* BattlePage */
+
+.battle_header {
+  width: 350px;
+  padding: 10px;
+  height: auto;
+  margin-left: 5%;
+  position: absolute;
+  top: 5rem;
+  border-radius: 14px;
+  background-color: #10295C80;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+hr {
+  width: 95%;
+}
+
+.user_top_data {
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.user_bottom_data {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.user_top_data img {
+  width: 37px;
+}
+
+.timeleft {
+  position: relative;
+  left: 5%;
+  margin-top: 35px;
+  color: white;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.timeleft_text {
+  font-weight: 100;
+}
+
+.timeleft img {
+  width: 20px;
+}
+
+.bottom_data_ambulance {
+  margin-left: 30%;
+}
+
+.bottom_name {
+  font-size: 14px;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+}
+
+.bottom_reward {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+}
+
+.battle_card {
+  width: 370px;
+  height: 60%;
+  margin-left: 5%;
+  position: absolute;
+  top: 25%;
+  border-radius: 14px;
+  background-color: #10295C80;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.battle_card_top-data {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 5%;
+  margin-right: 5%;
+  font-size: 12px;
+  font-weight: 400;
+  color: white;
+}
+
+.batlle_gamers {
+  margin-left: 67%;
+}
+
+.battle_card_bottom-data {
+  display: flex;
+  align-items: center;
+  margin-top: -5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.batlle_data {
+  display: flex;
+  align-items: center;
+  margin-top: -3%;
+  margin-left: 5%;
+  margin-right: 5%;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.battle_data_title {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.battle_data-star {
+  margin-left: 35%;
+}
+
+.battle_data-btn {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 90%;
+  height: 44px;
+  text-align: center;
+  align-items: center;
+  border-radius: 50px;
+  background: linear-gradient(to right, #715BF1, #B4FF00);
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.battle_img {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  position: absolute;
+  bottom: 0;
+  width: 370px;
+}
+
+
+.loading {
+  background-color: #ffcc00;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.battle_opponent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 5%;
+  margin-right: 5%;
+  position: relative;
+}
+.green-btn{
+  position: relative;
+  top: 3%;
+  font-weight: 700;
+}
+.battle_vs {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  animation: fadeIn 0.5s;
+}
+
+.close-btn {
+  margin-top: 10px;
+  background: #B4FF00;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.fade-in {
+  animation: fadeIn 1s;
 }

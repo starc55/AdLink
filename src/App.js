@@ -1,7 +1,7 @@
 import React from "react";
 import { MemoryRouter as Router, Routes, Route } from "react-router-dom";
 import Onboarding from "./components/Onboarding";
-import MainPage from "./Pages/Main.jsx"; // Asosiy sahifa
+import MainPage from "./Pages/Main.jsx";
 import "./style.css";
 
 function App() {
