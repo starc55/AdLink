@@ -8,7 +8,7 @@ import inner from "../img/inner.svg";
 import star from "../img/star.svg";
 import ambulance from "../img/ambulance.svg";
 import BattlePage from "./BattlePage";
-import "../style.css"
+import "../style.css";
 
 const pageVariants = {
   hidden: { opacity: 0 },

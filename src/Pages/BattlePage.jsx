@@ -48,9 +48,10 @@ const BattlePage = ({ setActivePage, hearts, stars, userName }) => {
 
   const handleFindOpponent = () => {
     setIsSearching(true);
-    
+
     setTimeout(() => {
-      const randomOpponent = opponentsList[Math.floor(Math.random() * opponentsList.length)];
+      const randomOpponent =
+        opponentsList[Math.floor(Math.random() * opponentsList.length)];
       setOpponent(randomOpponent);
       setIsSearching(false);
       setShowModal(true);
@@ -63,7 +64,10 @@ const BattlePage = ({ setActivePage, hearts, stars, userName }) => {
         <div className="user_top_data">
           <img src={heart} alt="" />
           {Array.from({ length: TotalHearts }, (_, index) => (
-            <div key={index} className={index < hearts ? "heart_rate" : "heart_rate-outline"}></div>
+            <div
+              key={index}
+              className={index < hearts ? "heart_rate" : "heart_rate-outline"}
+            ></div>
           ))}
 
           <p className="timeleft">
@@ -108,7 +112,9 @@ const BattlePage = ({ setActivePage, hearts, stars, userName }) => {
         </div>
 
         {isSearching ? (
-          <button className="battle_data-btn loading">Поиск соперника...</button>
+          <button className="battle_data-btn loading">
+            Поиск соперника...
+          </button>
         ) : opponent ? (
           <>
             <div className="battle_opponent animated">
