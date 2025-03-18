@@ -131,7 +131,7 @@ const Fight = () => {
           </div>
 
           <div className="heart_container">
-            <img src={heart} alt="" className="opponent-heart"/>
+            <img src={heart} alt="" className="opponent-heart" />
             {Array.from({ length: 9 }, (_, index) => (
               <div
                 key={index}

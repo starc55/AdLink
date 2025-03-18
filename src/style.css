@@ -409,6 +409,7 @@
 
 hr {
   width: 95%;
+  opacity: 60%;
 }
 
 .user_top_data {
@@ -605,7 +606,6 @@ hr {
   justify-content: center;
   align-items: center;
 }
-
 .modal-content {
   background: white;
   padding: 20px;
@@ -614,15 +614,498 @@ hr {
   animation: fadeIn 0.5s;
 }
 
-.close-btn {
+.close-btn_battle {
   margin-top: 10px;
   background: #B4FF00;
   color: white;
   padding: 10px;
   border: none;
-  cursor: pointer;
+  width: 70px;
+  height: 44px;
+  border-radius: 50px;
+  box-shadow: 0px 0px 10px #A9E526;
 }
 
 .fade-in {
   animation: fadeIn 1s;
+  width: 50px;
+}
+
+/* RatingPage */
+
+.heart-container {
+  display: flex;
+}
+
+.rating_heart {
+  margin-left: 3rem;
+  width: 35px;
+}
+
+.player-stats {
+  display: flex;
+  align-items: center;
+  margin-top: -1.5rem;
+}
+
+.player-stats p {
+  margin-left: 2%;
+  font-size: 18px;
+  color: white;
+  font-weight: 400;
+}
+
+.rating_container {
+  width: 90%;
+  height: 170px;
+  padding: 10px;
+  background-color: #10295C80;
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  top: 5rem;
+  left: 2%;
+}
+
+.rating_header {
+  display: flex;
+  align-items: center;
+}
+
+.rating_avatar {
+  margin-left: 1%;
+}
+
+.player-name {
+  margin-left: 1%;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+}
+
+.star_icon {
+  margin-left: 60%;
+}
+
+.rating_footer-title {
+  display: flex;
+  align-items: center;
+  margin-left: 2%;
+  gap: 10.5rem;
+  margin-top: -1.5rem;
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+}
+
+.rating_footer_paragraph {
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: -1rem;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+}
+
+.rating_footer_paragraph img {
+  margin-left: 70%;
+  margin-right: 2%;
+}
+
+.rating_ambulance {
+  margin-left: 2%;
+}
+
+.rating-gap {
+  width: 95%;
+  margin-top: -1rem;
+  opacity: 60%;
+}
+
+.rating_list {
+  position: absolute;
+  top: 35%;
+  width: 90%;
+  max-height: 500px;
+  overflow-y: auto;
+  padding-right: 5px;
+  margin-left: 5%;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.rating_list::-webkit-scrollbar {
+  display: none;
+}
+
+.rating_list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.rating_card {
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: green;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.rating_card:hover {
+  transform: scale(1.05);
+}
+
+.player-stars {
+  font-size: 18px;
+  color: white;
+  font-weight: 400;
+}
+
+.rankig-number {
+  font-size: 18px;
+  color: white;
+  font-weight: 400;
+}
+
+/* Wallet */
+
+.wallet_header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 90%;
+  height: 108px;
+  border-radius: 14px;
+  padding: 10px;
+  background-color: #10295C80;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: absolute;
+  left: 2.5%;
+  top: 5rem;
+}
+
+.wallet_header-status {
+  display: flex;
+  align-items: center;
+}
+
+.wallet-star {
+  margin-left: 45%;
+  margin-right: 2%;
+}
+
+.wallet_star_rate {
+  color: white;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.send_request {
+  width: 95%;
+  height: 44px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 50px;
+  background: linear-gradient(to right, #715BF1, #B4FF00);
+  border: none;
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+  align-items: center;
+}
+
+.transactions_list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  top: 25%;
+  width: 95%;
+  margin-left: 2%;
+  max-height: 65vh;
+  overflow-y: auto;
+  padding-right: 5px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.transaction_card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background-color: #14213D;
+}
+
+.transactions_list::-webkit-scrollbar {
+  display: none;
+}
+
+.transaction_info {
+  display: flex;
+  flex-direction: column;
+}
+
+.transaction_type {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.transaction_date {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.transaction_amount {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.transaction_value {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.transaction_star {
+  width: 18px;
+  height: 18px;
+}
+
+.modal_backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  z-index: 10;
+}
+
+.modal_container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 400px;
+  background: #10295C;
+  padding: 20px;
+  border-radius: 20px 20px 0 0;
+  z-index: 20;
+  text-align: center;
+  color: white;
+}
+
+.wallet-request-title {
+  color: white;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.balance {
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+}
+
+.balance img {
+  position: relative;
+  top: 0.5rem;
+}
+
+.balance_star {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.request_input {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  gap: 0.5rem;
+}
+
+.top {
+  width: 168px;
+  height: 44px;
+  border: 1px solid #B4FF00;
+  background-color: transparent;
+  border-radius: 50px;
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  outline: none;
+}
+
+.wallet_location {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 345px;
+  position: relative;
+  top: 1rem;
+  height: 44px;
+  border-radius: 50px;
+  border: 1px solid #B4FF00;
+  background-color: transparent;
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  outline: none;
+}
+
+.modal_button {
+  width: 345px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  height: 44px;
+  border-radius: 50px;
+  border: none;
+  background: linear-gradient(to right, #715BF1, #B4FF00);
+  position: relative;
+  top: 1rem;
+  color: white;
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 3rem;
+}
+
+
+
+/* Modal overlay blur effect */
+.main-page.blur {
+  filter: blur(5px);
+  pointer-events: none;
+}
+
+/* Modal container */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: flex-end;
+  /* Pastdan chiqish */
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Modal content */
+.modal-content {
+  background: #122357;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px 20px 0 0;
+  padding: 20px;
+  color: white;
+  text-align: center;
+  box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Close button */
+.close-btn {
+  background: #ff4c4c;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Plus-minus buttons */
+.quantity-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 1rem;
+}
+
+.quantity-control button {
+  background: #B4FF00;
+  border: none;
+  width: 100px;
+  height: 44px;
+  padding: 10px 15px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 50px;
+}
+
+.quantity-control input {
+  width: 50px;
+  text-align: center;
+  font-size: 18px;
+  border: none;
+  background: transparent;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+}
+
+.buy_title {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  gap: 2rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.buy_sub {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  font-family: "Coiny", system-ui;
+}
+
+.buy-title {
+  font-family: "Coiny", system-ui;
+}
+
+.buy-btn {
+  width: 90%;
+  height: 44px;
+  border-radius: 50px;
+  background-color: transparent;
+  border: none;
+  background: linear-gradient(to right, #715BF1, #B4FF00);
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: "Coiny", system-ui !important;
+}
+
+.buy-img_star {
+  margin-left: -2rem;
+  margin-right: 1%;
+  width: 25px;
+}
+.buy_value{
+  font-size: 20px;
+}
+.buy-img {
+  margin-left: 20%;
+  margin-right: 1%;
+  width: 30px;
 }

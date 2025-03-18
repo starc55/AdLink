@@ -153,7 +153,7 @@ const BattlePage = ({ setActivePage, hearts, stars, userName }) => {
             <h2>Бой найден!</h2>
             <img src={opponent.avatar} alt="" className="fade-in" />
             <p>Ваш соперник: {opponent.name}</p>
-            <button onClick={() => setShowModal(false)} className="close-btn">
+            <button onClick={() => setShowModal(false)} className="close-btn_battle">
               OK
             </button>
           </div>

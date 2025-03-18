@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import mainMale from "../img/mainMale.svg";
 import mainFemale from "../img/mainFemale.svg";
@@ -8,7 +8,10 @@ import inner from "../img/inner.svg";
 import star from "../img/star.svg";
 import ambulance from "../img/ambulance.svg";
 import BattlePage from "./BattlePage";
+import RatingPage from "./RatingPage";
+import WalletPage from "./Wallet";
 import "../style.css";
+import rectangle from "../img/rectangle.svg";
 
 const pageVariants = {
   hidden: { opacity: 0 },
@@ -16,8 +19,19 @@ const pageVariants = {
   exit: { opacity: 0, transition: { duration: 0.3 } },
 };
 
+const modalVariants = {
+  hidden: { y: "50vh", opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { duration: 0.4, ease: "easeOut" } },
+  exit: {
+    y: "50vh",
+    opacity: 0,
+    transition: { duration: 0.4, ease: "easeIn" },
+  },
+};
+
 const MainPage = () => {
   const [activePage, setActivePage] = useState("hub");
+  const [showModal, setShowModal] = useState(false);
   const [gender, setGender] = useState(
     localStorage.getItem("userGender") || "male"
   );
@@ -30,41 +44,28 @@ const MainPage = () => {
   const [userName, setUserName] = useState(
     localStorage.getItem("userName") || "User Name"
   );
-  const [rewardCollected, setRewardCollected] = useState(false);
-  const [showReward, setShowReward] = useState(false);
-  const [animate, setAnimate] = useState(false);
 
-  useEffect(() => {
-    const lastClaimDate = localStorage.getItem("lastClaimDate");
-    const today = new Date().toDateString();
+  const [quantity, setQuantity] = useState(1);
+  const pricePerItem = 5;
 
-    if (lastClaimDate !== today) {
-      setShowReward(true);
-      setTimeout(() => setAnimate(true), 250);
-    }
-  }, []);
+  const increaseQuantity = () => setQuantity((prev) => prev + 1);
+  const decreaseQuantity = () =>
+    setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
 
-  const claimReward = useCallback(() => {
-    setHearts((prevHearts) => {
-      const newHearts = prevHearts + 1;
-      localStorage.setItem("userHearts", newHearts);
-      return newHearts;
-    });
-    localStorage.setItem("lastClaimDate", new Date().toDateString());
-    setRewardCollected(true);
-    setShowReward(false);
-  }, []);
+  const handleQuantityChange = (e) => {
+    const value = parseInt(e.target.value, 10);
+    setQuantity(value > 0 ? value : 1);
+  };
 
   return (
     <AnimatePresence mode="wait">
-      {" "}
       <motion.div
         key={activePage}
         variants={pageVariants}
         initial="hidden"
         animate="visible"
         exit="exit"
-        className="main-page"
+        className={`main-page ${showModal ? "blur" : ""}`}
       >
         {activePage === "battle" ? (
           <BattlePage
@@ -73,24 +74,30 @@ const MainPage = () => {
             stars={stars}
             userName={userName}
           />
+        ) : activePage === "rating" ? (
+          <RatingPage
+            setActivePage={setActivePage}
+            hearts={hearts}
+            stars={stars}
+            userName={userName}
+          />
+        ) : activePage === "wallet" ? (
+          <WalletPage
+            setActivePage={setActivePage}
+            hearts={hearts}
+            stars={stars}
+            userName={userName}
+          />
         ) : (
           <>
-            {showReward && !rewardCollected && (
-              <div className={`daily-reward ${animate ? "show" : ""}`}>
-                <p>Ежедневная награда!</p>
-                <div className="reward_container">
-                  <span className="reward">
-                    <img src={ambulance} alt="daily reward" />
-                    <span>+1</span>
-                  </span>
-                  <button onClick={claimReward}>Забрать</button>
-                </div>
-              </div>
-            )}
-
             <div className="inner_container">
               <div className="inner_cont">
-                <button className="inner_btn">Купить аптечки</button>
+                <button
+                  className="inner_btn"
+                  onClick={() => setShowModal(true)}
+                >
+                  Купить аптечки
+                </button>
                 <div className="heart_container">
                   <img src={heart} alt="" />
                   {Array.from({ length: 9 }, (_, index) => (
@@ -126,6 +133,46 @@ const MainPage = () => {
           </>
         )}
       </motion.div>
+
+      <AnimatePresence>
+        {showModal && (
+          <motion.div
+            className="modal-overlay"
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={modalVariants}
+            onClick={() => setShowModal(false)}
+          >
+            <motion.div
+              className="modal-content"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img src={rectangle} alt="" />
+              <h2 className="buy-title">Купить аптечки</h2>
+              <div>
+                <div className="buy_title">
+                  <p>Баланс</p>
+                  <p>Аптечки</p>
+                </div>
+                <div className="buy_sub">
+                  <img src={star} alt="" className="buy-img_star" />
+                  <span className="buy_value">{stars}</span>
+                  <img src={ambulance} alt="" className="buy-img" />
+                  <span className="buy_value">{hearts}</span>
+                </div>
+              </div>
+              <div className="quantity-control">
+                <button onClick={decreaseQuantity}>-</button>
+                <span>{quantity}</span>
+                <button onClick={increaseQuantity}>+</button>
+              </div>
+              <p>К оплате: {quantity * pricePerItem} ₽</p>
+              <button className="buy-btn">Купить</button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </AnimatePresence>
   );
 };
