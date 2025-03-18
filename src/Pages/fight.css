@@ -16,7 +16,8 @@
     background-color: #10295C80;
     position: absolute;
     top: 5rem;
-    margin-left: 4%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .player_name {
@@ -58,6 +59,8 @@
     position: absolute;
     bottom: 10%;
     gap: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .fight_foot {
@@ -80,7 +83,6 @@
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     background-color: #ffffff1d;
-    margin-left: 4%;
 }
 
 .fight_btn {
@@ -230,6 +232,6 @@ label {
     cursor: not-allowed;
 }
 
-.opponent-heart{
+.opponent-heart {
     margin-left: 10%;
 }

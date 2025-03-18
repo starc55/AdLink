@@ -39,7 +39,7 @@ const RatingPage = ({ setActivePage, hearts, stars, userName }) => {
         animate="visible"
         exit="exit"
         className="rating-page"
-      >
+      > 
         <div className="rating_container">
           <div className="rating_header">
             <img src={avatar} alt="" className="rating_avatar" />

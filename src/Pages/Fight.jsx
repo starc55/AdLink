@@ -93,7 +93,7 @@ const Fight = () => {
     return user.gender === "male" ? maleLoser : femaleLoser;
   };
 
-  return (
+  return ( 
     <div className="fight_container">
       <div className="fight_header">
         <div className="player_info">

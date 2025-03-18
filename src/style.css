@@ -52,8 +52,9 @@
   font-weight: 400;
   border-radius: 50px;
   position: absolute;
-  top: 5.5rem;
+  top: 4rem;
   right: 2rem;
+  font-family: "Chewy", system-ui;
 }
 
 .onboarding-skip span {
@@ -86,6 +87,9 @@
   line-height: 110.00000000000001%;
   color: #FFFFFF;
   opacity: 100%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
 }
 
 .onboarding-text span {
@@ -231,8 +235,9 @@
   height: 100px;
   background: url("./img/Vector5.svg") no-repeat center / cover;
   position: absolute;
-  top: 5rem;
-  left: 4%;
+  top: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .inner_cont {
@@ -398,9 +403,10 @@
   width: 350px;
   padding: 10px;
   height: auto;
-  margin-left: 4%;
+  left: 50%;
+  transform: translateX(-50%);
   position: absolute;
-  top: 5rem;
+  top: 4rem;
   border-radius: 14px;
   background-color: #10295C80;
   backdrop-filter: blur(10px);
@@ -465,7 +471,8 @@ hr {
 .battle_card {
   width: 370px;
   height: 60%;
-  margin-left: 4%;
+  left: 50%;
+  transform: translateX(-50%);
   position: absolute;
   top: 25%;
   border-radius: 14px;
@@ -606,6 +613,7 @@ hr {
   justify-content: center;
   align-items: center;
 }
+
 .modal-content {
   background: white;
   padding: 20px;
@@ -667,8 +675,9 @@ hr {
   flex-direction: column;
   gap: 10px;
   position: absolute;
-  top: 5rem;
-  left: 2%;
+  top: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .rating_header {
@@ -712,6 +721,11 @@ hr {
   color: white;
 }
 
+.rating_footer_paragraph p {
+  position: relative;
+  left: 2%;
+}
+
 .rating_footer_paragraph img {
   margin-left: 70%;
   margin-right: 2%;
@@ -729,12 +743,13 @@ hr {
 
 .rating_list {
   position: absolute;
-  top: 35%;
+  top: 30%;
   width: 90%;
-  max-height: 500px;
+  max-height: 550px;
   overflow-y: auto;
   padding-right: 5px;
-  margin-left: 5%;
+  left: 50%;
+  transform: translateX(-50%);
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -789,8 +804,9 @@ hr {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   position: absolute;
-  left: 2.5%;
-  top: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 4rem;
 }
 
 .wallet_header-status {
@@ -832,7 +848,8 @@ hr {
   position: absolute;
   top: 25%;
   width: 95%;
-  margin-left: 2%;
+  left: 50%;
+  transform: translateX(-50%);
   max-height: 65vh;
   overflow-y: auto;
   padding-right: 5px;
@@ -1101,9 +1118,11 @@ hr {
   margin-right: 1%;
   width: 25px;
 }
-.buy_value{
+
+.buy_value {
   font-size: 20px;
 }
+
 .buy-img {
   margin-left: 20%;
   margin-right: 1%;

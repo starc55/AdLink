@@ -13,12 +13,6 @@ import WalletPage from "./Wallet";
 import "../style.css";
 import rectangle from "../img/rectangle.svg";
 
-const pageVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.3 } },
-  exit: { opacity: 0, transition: { duration: 0.3 } },
-};
-
 const modalVariants = {
   hidden: { y: "50vh", opacity: 0 },
   visible: { y: 0, opacity: 1, transition: { duration: 0.4, ease: "easeOut" } },
@@ -61,7 +55,6 @@ const MainPage = () => {
     <AnimatePresence mode="wait">
       <motion.div
         key={activePage}
-        variants={pageVariants}
         initial="hidden"
         animate="visible"
         exit="exit"
@@ -102,7 +95,7 @@ const MainPage = () => {
                   <img src={heart} alt="" />
                   {Array.from({ length: 9 }, (_, index) => (
                     <div
-                      key={index}
+                      key={index} 
                       className={
                         index < hearts ? "heart_rate" : "heart_rate-outline"
                       }

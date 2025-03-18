@@ -60,7 +60,7 @@ const Onboarding = () => {
   const handleStartGame = () => {
     navigate("/main");
   };
-
+ 
   return (
     <div
       className="onboarding-container"

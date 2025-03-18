@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../Css/Navbar.css";
 import ambulance from "../img/ambulance.svg";
 import coin from "../img/coin.svg";
@@ -16,46 +16,46 @@ const navItems = [
 
 const BottomNavbar = ({ activePage, setActivePage }) => {
   const [activeTab, setActiveTab] = useState("hub");
+  const [borderStyle, setBorderStyle] = useState({ left: 0, width: 0 });
+  const navRefs = useRef([]);
 
   useEffect(() => {
     setActiveTab(activePage);
   }, [activePage]);
 
-  const handleNavClick = useCallback(
-    (id) => {
-      setActiveTab(id);
-      setActivePage(id);
-    },
-    [setActivePage]
-  );
+  useEffect(() => {
+    const activeElement = navRefs.current.find(
+      (el) => el && el.dataset.id === activeTab
+    );
 
-  const translateX = useMemo(() => {
-    return `${navItems.findIndex((item) => item.id === activeTab) * 120}%`;
+    if (activeElement) {
+      const { offsetLeft, offsetWidth } = activeElement;
+      setBorderStyle({ left: offsetLeft, width: offsetWidth });
+    }
   }, [activeTab]);
 
   return (
     <div className="bottom-navbar">
-      <div
-        className="moving-border"
-        style={{ transform: `translateX(${translateX})` }}
-      >
-        <div className="curve"></div>
+      <div className="nav-container">
+        {navItems.map((item, index) => (
+          <button
+            key={item.id}
+            data-id={item.id}
+            ref={(el) => (navRefs.current[index] = el)}
+            className={`nav-item ${activeTab === item.id ? "active" : ""}`}
+            onClick={() => {
+              setActiveTab(item.id);
+              setActivePage(item.id);
+            }}
+          >
+            <img src={item.icon} alt={item.label} className="nav-icon" />
+            <span className="nav-label">{item.label}</span>
+          </button>
+        ))}
+        <div className="moving-border" style={{ left: `${borderStyle.left}px`, width: `${borderStyle.width}px` }}>
+          <div className="curve"></div>
+        </div>
       </div>
-
-      {navItems.map((item) => (
-        <button
-          key={item.id}
-          className={`nav-item ${activeTab === item.id ? "active" : ""}`}
-          onClick={() => handleNavClick(item.id)}
-        >
-          <img
-            src={item.icon}
-            alt={item.label}
-            className={`nav-icon ${item.id}-icon`}
-          />
-          <span className="nav-label">{item.label}</span>
-        </button>
-      ))}
     </div>
   );
 };
