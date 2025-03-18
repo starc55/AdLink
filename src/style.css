@@ -52,7 +52,7 @@
   font-weight: 400;
   border-radius: 50px;
   position: absolute;
-  top: 4rem;
+  top: 4.5rem;
   right: 2rem;
   font-family: "Chewy", system-ui;
 }
@@ -235,7 +235,7 @@
   height: 100px;
   background: url("./img/Vector5.svg") no-repeat center / cover;
   position: absolute;
-  top: 4rem;
+  top: 4.5rem;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -406,7 +406,7 @@
   left: 50%;
   transform: translateX(-50%);
   position: absolute;
-  top: 4rem;
+  top: 4.5rem;
   border-radius: 14px;
   background-color: #10295C80;
   backdrop-filter: blur(10px);
@@ -675,7 +675,7 @@ hr {
   flex-direction: column;
   gap: 10px;
   position: absolute;
-  top: 4rem;
+  top: 4.5rem;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -806,7 +806,7 @@ hr {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 4rem;
+  top: 4.5rem;
 }
 
 .wallet_header-status {
