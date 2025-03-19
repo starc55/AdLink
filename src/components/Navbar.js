@@ -52,7 +52,13 @@ const BottomNavbar = ({ activePage, setActivePage }) => {
             <span className="nav-label">{item.label}</span>
           </button>
         ))}
-        <div className="moving-border" style={{ left: `${borderStyle.left}px`, width: `${borderStyle.width}px` }}>
+        <div
+          className="moving-border"
+          style={{
+            left: `${borderStyle.left}px`,
+            width: `${borderStyle.width}px`,
+          }}
+        >
           <div className="curve"></div>
         </div>
       </div>

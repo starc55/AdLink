@@ -377,11 +377,6 @@
   color: #ffffff;
 }
 
-.daily-reward.show {
-  opacity: 1;
-  transform: translateX(-50%) scale(1);
-}
-
 .daily-reward button {
   position: relative;
   right: 3%;

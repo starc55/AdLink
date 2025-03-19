@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import mainMale from "../img/mainMale.svg";
 import mainFemale from "../img/mainFemale.svg";
@@ -24,6 +24,8 @@ const modalVariants = {
 };
 
 const MainPage = () => {
+  const [canClaimReward, setCanClaimReward] = useState(false);
+  const [showBonusButton, setShowBonusButton] = useState(false);
   const [activePage, setActivePage] = useState("hub");
   const [showModal, setShowModal] = useState(false);
   const [gender, setGender] = useState(
@@ -49,6 +51,33 @@ const MainPage = () => {
   const handleQuantityChange = (e) => {
     const value = parseInt(e.target.value, 10);
     setQuantity(value > 0 ? value : 1);
+  };
+
+  useEffect(() => {
+    const lastClaimDate = localStorage.getItem("lastClaimDate");
+    const nextRewardTime = lastClaimDate ? new Date(lastClaimDate) : null;
+    if (nextRewardTime) {
+      nextRewardTime.setDate(nextRewardTime.getDate() + 1);
+    }
+
+    const now = new Date();
+    if (!lastClaimDate || now >= nextRewardTime) {
+      setCanClaimReward(true);
+    }
+
+    // Foydalanuvchi kirganida animatsiya bilan tugma chiqsin
+    setTimeout(() => {
+      setShowBonusButton(true);
+    }, 1000);
+  }, []);
+
+  const handleClaimReward = () => {
+    if (canClaimReward) {
+      setHearts((prev) => Math.min(prev + 1, 5)); // Yuraklar sonini oshiramiz, maksimal 5 bo‘ladi
+      localStorage.setItem("lastClaimDate", new Date().toISOString());
+      setCanClaimReward(false);
+      setShowBonusButton(false); // Tugmani yo‘q qilamiz
+    }
   };
 
   return (
@@ -95,7 +124,7 @@ const MainPage = () => {
                   <img src={heart} alt="" />
                   {Array.from({ length: 9 }, (_, index) => (
                     <div
-                      key={index} 
+                      key={index}
                       className={
                         index < hearts ? "heart_rate" : "heart_rate-outline"
                       }
@@ -124,6 +153,27 @@ const MainPage = () => {
               activePage={activePage}
             />
           </>
+        )}
+        {showBonusButton && (
+          <div className="daily-reward">
+            <p>Ежедневная награда!</p>
+            <div className="reward_container">
+              <div className="reward">
+                <img src={ambulance} alt="" />
+                <span>+1</span>
+              </div>
+
+              <button
+                className={`reward-btn ${
+                  canClaimReward ? "active fade-in" : "disabled fade-in"
+                }`}
+                onClick={handleClaimReward}
+                disabled={!canClaimReward}
+              >
+                Забрать
+              </button>
+            </div>
+          </div>
         )}
       </motion.div>
 
