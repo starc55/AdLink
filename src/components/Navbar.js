@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "../Css/Navbar.css";
 import ambulance from "../img/ambulance.svg";
 import coin from "../img/coin.svg";
@@ -16,29 +16,33 @@ const navItems = [
 
 const BottomNavbar = ({ activePage, setActivePage }) => {
   const [activeTab, setActiveTab] = useState(activePage);
-  const [borderStyle, setBorderStyle] = useState({ left: 0, width: 0 });
-  const [isFirstLoad, setIsFirstLoad] = useState(true); // Animatsiyani o‘chirish uchun flag
+  const [borderStyle, setBorderStyle] = useState(null); // Boshlang‘ich qiymat null
   const navRefs = useRef([]);
 
   useEffect(() => {
     setActiveTab(activePage);
   }, [activePage]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const activeElement = navRefs.current.find(
       (el) => el && el.dataset.id === activeTab
     );
 
     if (activeElement) {
       const { offsetLeft, offsetWidth } = activeElement;
-      setBorderStyle({ left: offsetLeft, width: offsetWidth });
+
+      // Birinchi yuklashda animatsiyasiz, keyin silliq harakatlanish
+      if (borderStyle === null) {
+        setBorderStyle({ left: offsetLeft, width: offsetWidth, transition: "none" });
+      } else {
+        setBorderStyle({ left: offsetLeft, width: offsetWidth, transition: "left 0.3s ease-in-out, width 0.3s ease-in-out" });
+      }
     }
   }, [activeTab]);
 
   const handleTabChange = (id) => {
     setActiveTab(id);
     setActivePage(id);
-    setIsFirstLoad(false); // Endi animatsiya ishlashi mumkin
   };
 
   return (
@@ -58,11 +62,7 @@ const BottomNavbar = ({ activePage, setActivePage }) => {
         ))}
         <div
           className="moving-border"
-          style={{
-            left: `${borderStyle.left}px`,
-            width: `${borderStyle.width}px`,
-            transition: isFirstLoad ? "none" : "left 0.3s ease, width 0.3s ease",
-          }}
+          style={borderStyle || { left: 0, width: 0 }}
         >
           <div className="curve"></div>
         </div>

@@ -740,7 +740,7 @@ hr {
   position: absolute;
   top: 33%;
   width: 90%;
-  max-height: 550px;
+  max-height: 55vh;
   overflow-y: auto;
   padding-right: 5px;
   left: 50%;
@@ -845,7 +845,7 @@ hr {
   width: 95%;
   left: 50%;
   transform: translateX(-50%);
-  max-height: 65vh;
+  max-height: 63vh;
   overflow-y: auto;
   padding-right: 5px;
   scrollbar-width: none;

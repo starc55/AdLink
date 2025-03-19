@@ -2,14 +2,15 @@
     position: fixed;
     bottom: 0;
     width: 100vw;
-    height: 70px;
-    background: rgba(0, 38, 90, 0.7);
+    height: 100px;
+    background: rgba(0, 38, 90, 0.927);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-top: 2px solid #B4FF00;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
 }
 
 .nav-container {
@@ -46,6 +47,9 @@
     width: 32px;
     height: 32px;
     margin-bottom: 5px;
+    display: block;
+    margin: 0 auto 5px;
+    z-index: 3;
 }
 
 .nav-label {
@@ -55,10 +59,29 @@
 
 .moving-border {
     position: absolute;
-    top: -12px;
-    height: 5px;
-    background: #82ff00;
-    border-radius: 5px;
-    box-shadow: 0px -2px 0px #A9E526;
-    transition: all 0.3s ease-in-out;
+    top: -33px;
+    width: 30px;
+    height: 35px;
+    background-color: rgba(0, 38, 90, 0.927);
+    border-radius: 50%;
+    box-shadow: 0px -2px 0px #B4FF00;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), width 0.5s ease-in-out;
+    will-change: transform, width;
+    z-index: 2;
 }
+  
+  .nav-item.active {
+    scale: 1.1;
+  }
+  
+  .curve {
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    width: 9px;
+    height: 9px;
+    background: #B4FF00;
+    border-radius: 50%;
+    transform: translateX(-50%);
+  }
+  
