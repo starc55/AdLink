@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useLayoutEffect, useRef, useEffect } from "react";
 import "../Css/Navbar.css";
 import ambulance from "../img/ambulance.svg";
 import coin from "../img/coin.svg";
@@ -15,15 +15,16 @@ const navItems = [
 ];
 
 const BottomNavbar = ({ activePage, setActivePage }) => {
-  const [activeTab, setActiveTab] = useState("hub");
+  const [activeTab, setActiveTab] = useState(activePage);
   const [borderStyle, setBorderStyle] = useState({ left: 0, width: 0 });
+  const [isFirstLoad, setIsFirstLoad] = useState(true); // Animatsiyani o‘chirish uchun flag
   const navRefs = useRef([]);
 
   useEffect(() => {
     setActiveTab(activePage);
   }, [activePage]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const activeElement = navRefs.current.find(
       (el) => el && el.dataset.id === activeTab
     );
@@ -34,6 +35,12 @@ const BottomNavbar = ({ activePage, setActivePage }) => {
     }
   }, [activeTab]);
 
+  const handleTabChange = (id) => {
+    setActiveTab(id);
+    setActivePage(id);
+    setIsFirstLoad(false); // Endi animatsiya ishlashi mumkin
+  };
+
   return (
     <div className="bottom-navbar">
       <div className="nav-container">
@@ -43,10 +50,7 @@ const BottomNavbar = ({ activePage, setActivePage }) => {
             data-id={item.id}
             ref={(el) => (navRefs.current[index] = el)}
             className={`nav-item ${activeTab === item.id ? "active" : ""}`}
-            onClick={() => {
-              setActiveTab(item.id);
-              setActivePage(item.id);
-            }}
+            onClick={() => handleTabChange(item.id)}
           >
             <img src={item.icon} alt={item.label} className="nav-icon" />
             <span className="nav-label">{item.label}</span>
@@ -57,6 +61,7 @@ const BottomNavbar = ({ activePage, setActivePage }) => {
           style={{
             left: `${borderStyle.left}px`,
             width: `${borderStyle.width}px`,
+            transition: isFirstLoad ? "none" : "left 0.3s ease, width 0.3s ease",
           }}
         >
           <div className="curve"></div>
